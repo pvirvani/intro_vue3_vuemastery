@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <!-- Importing all Google Fonts and Symbols "Material Design Icons" -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet">
   </head>
   <body>
     <div id="app">
@@ -19,6 +25,15 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory <=10 && inventory >0">Almost Sold Out!
+              <span class="material-icons">inventory_2</span>
+            </p>
+            <p v-else>Out of Stock</p>
+            <p v-show="onSale"> 50% Off
+              <span class="material-icons-outlined"></material-icons>local_offer</span>
+            </p>
+            
           </div>
         </div>
       </div>
